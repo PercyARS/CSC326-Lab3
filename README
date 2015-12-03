@@ -1,0 +1,30 @@
+CSC326 Search Engine Project Group 4 Team Member: Peixi Zhao, Anthony Kwan, Shane Ku
+======
+
+### Public Elastic IP of the AWS EC2 instance
+http://52.22.145.42/
+
+
+### How To update AWS credentials
+1. download the desired credentials from AWS website
+2. save and replace the 'rootkey.csv' (default filename) to the project directory
+
+### How to deploy the web service
+1. download the correct AWS credential file "rootkey.csv", the content of the file as follows:
+
+AWSAccessKeyId=XXXXXXXXXXXX
+AWSSecretKey=XXXXXXXXXXXXXXXXXXXXXXXX
+
+2. go to the project directory
+3. run `python AWS.EC2.py`
+
+### How To run the unittest
+python test.py
+
+### How to set up benchmark
+1. log into the ec2 instance server with the following command:
+    ssh -i TheKeyPair.pem ubuntu@52.22.145.42
+2. use dstat on the instance to monitor the hardware status with the folllowing command:
+    dstat -c -d -m -p --socket
+3.  use local ab command to send requests to EC2 instance as follows:
+    ab -n 150 -c 150 http://52.22.145.42/?keywords=helloworld+foo+bar
